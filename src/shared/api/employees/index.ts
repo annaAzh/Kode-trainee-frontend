@@ -1,4 +1,5 @@
-import { Departments, Employees } from '@/shared/types';
+import { Employee } from '@/entities/employee/model/types';
+import { Departments } from '@/shared/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const BASE_URL = 'https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/';
@@ -12,7 +13,7 @@ export const employeesApi = createApi({
     baseUrl: BASE_URL,
   }),
   endpoints: (build) => ({
-    getUsers: build.query<{ items: Employees[] }, Departments>({
+    getUsers: build.query<{ items: Employee[] }, Departments>({
       query: (department) => `users?__example=${department}`,
       keepUnusedDataFor: CACHE_LIFE,
     }),

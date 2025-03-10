@@ -1,9 +1,18 @@
-import { FC } from 'react';
-import './index.css';
-import { RouteProvider } from './providers';
+import { FC, useState } from 'react';
+import { RouteProvider, StoreProvider, Theme } from './providers';
+import { GlobalStyle } from './styles/GlobalStyle';
+import { THEME } from '@/shared/types';
 
 const App: FC = () => {
-  return <RouteProvider />;
+  const [theme] = useState(THEME.DARK);
+  return (
+    <StoreProvider>
+      <Theme theme={theme}>
+        <GlobalStyle />
+        <RouteProvider />
+      </Theme>
+    </StoreProvider>
+  );
 };
 
 export { App };

@@ -4,7 +4,7 @@ import { GlobalStyle } from './styles/GlobalStyle';
 import { THEME } from '@/shared/types';
 
 const App: FC = () => {
-  const [theme] = useState(THEME.DARK);
+  const [theme] = useState(THEME.LIGHT);
   return (
     <StoreProvider>
       <Theme theme={theme}>

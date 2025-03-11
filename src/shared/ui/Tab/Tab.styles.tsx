@@ -1,18 +1,29 @@
 import styled from 'styled-components';
 
-export const TabContainer = styled.div`
+export const TabContainer = styled.nav<{ $isDragging: boolean }>`
   display: flex;
   width: 100%;
   align-items: center;
   padding: 0 10px;
-  overflow-x: hidden;
   border-bottom: 1px solid ${(props) => props.theme.borderTab};
-`;
+  cursor: grab;
+  overflow-x: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: ${(props) => (props.$isDragging ? 'grabbing' : 'grab')};
+  user-select: ${(props) => props.$isDragging && 'none'};
 
-export const TabContent = styled.div`
-  margin-top: 16px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
-  text-align: left;
+  & div {
+    scroll-snap-align: start;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+  }
 `;
 
 const activeTabItem = 'var(--color-accent)';
@@ -27,4 +38,5 @@ export const StyledTabItem = styled.div<{ selected: boolean }>`
   cursor: pointer;
   color: ${(props) => props.theme.border};
   border-bottom: 2px solid ${(props) => (props.selected ? activeTabItem : defaultTabItem)};
+  text-decoration: none;
 `;

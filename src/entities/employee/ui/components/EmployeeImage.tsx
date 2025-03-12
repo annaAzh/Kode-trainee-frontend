@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { StyledAvatar } from '../EmployeeCard.styles';
+import { StyledAvatar } from '../EmployeeCard/EmployeeCard.styles';
 
 const AVATAR_PLACEHOLDER = '/images/img_placeholder.png';
 

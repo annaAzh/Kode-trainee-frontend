@@ -17,6 +17,10 @@ const router = createBrowserRouter([
     path: Paths.NOT_FOUND,
     element: <NotFound />,
   },
+  {
+    path: Paths.NOT_FOUND_ALL,
+    element: <NotFound />,
+  },
 ]);
 
 export const RouteProvider = () => {

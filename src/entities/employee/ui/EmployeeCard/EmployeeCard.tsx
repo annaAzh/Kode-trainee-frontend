@@ -9,7 +9,7 @@ import {
   StyledText,
   StyledTextGroup,
 } from './EmployeeCard.styles';
-import { EmployeeImage } from './components/EmployeeImage';
+import { EmployeeImage } from '../components/EmployeeImage';
 
 interface Props {
   employee: Employee;

@@ -1,6 +1,7 @@
 export const lightTheme = {
   body: 'var(--color-white)',
   border: 'var(--color-border)',
+  grayParagraph: 'var(--color-border)',
   text: 'var(--color-black)',
   borderTab: 'var(--color-gray)',
   inputBackGround: 'var(--color-light-gray)',
@@ -12,6 +13,7 @@ export const lightTheme = {
 export const darkTheme = {
   body: 'var(--color-primary)',
   border: 'var(--color-white)',
+  grayParagraph: 'var(--color-border)',
   text: 'var(--color-light)',
   borderTab: 'var(--color-gray)',
   lightGray: 'var(--color-light-gray)',

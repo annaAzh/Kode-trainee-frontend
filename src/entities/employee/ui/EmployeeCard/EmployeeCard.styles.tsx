@@ -1,11 +1,13 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const StyledEmployeeCardWrapper = styled.div`
+export const StyledEmployeeCardWrapper = styled(Link)`
   display: flex;
   padding: 6px 0;
   gap: 16px;
   align-items: center;
   cursor: pointer;
+  text-decoration: none;
 `;
 
 export const StyledAvatarWrapper = styled.div`

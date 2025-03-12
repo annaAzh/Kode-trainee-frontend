@@ -16,13 +16,15 @@ export const StyledInput = styled.input`
   flex: 1;
   height: 40px;
   font-size: 15px;
+  margin-bottom: 6px;
+  margin-top: 6px;
 
   &::placeholder {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
-    color: ${(props) => props.theme.searchPlaceholder};
+    color: ${(props) => props.theme.inputPlaceholder};
   }
 `;
 

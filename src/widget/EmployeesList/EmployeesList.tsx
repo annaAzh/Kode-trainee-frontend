@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Skeleton } from '@/shared/ui';
 import { useAppSelector } from '@/shared/lib/hooks';
 import { EmployeeCard, getFilteredEmployees } from '@/entities/employee';
+import { SearchError } from '../SearchError/SearchError';
 
 interface Props {
   isLoading: boolean;
@@ -10,7 +11,7 @@ interface Props {
 export const EmployeesList: FC<Props> = ({ isLoading }) => {
   const employees = useAppSelector(getFilteredEmployees);
 
-  if (isLoading)
+  if (isLoading) {
     return (
       <>
         {Array.from({ length: 4 }).map((_, i) => (
@@ -18,8 +19,9 @@ export const EmployeesList: FC<Props> = ({ isLoading }) => {
         ))}
       </>
     );
+  }
 
-  if (!employees || employees.length === 0) return <p>No data</p>;
+  if (!employees || employees.length === 0) return <SearchError />;
 
   return (
     <ul>

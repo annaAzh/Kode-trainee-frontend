@@ -2,7 +2,6 @@ import { FC } from 'react';
 
 import { Employee } from '../../model/types';
 import {
-  StyledAvatar,
   StyledAvatarWrapper,
   StyledEmployeeCardWrapper,
   StyledJob,
@@ -10,8 +9,7 @@ import {
   StyledText,
   StyledTextGroup,
 } from './EmployeeCard.styles';
-
-const AVATAR_PLACEHOLDER = '/images/img_placeholder.png';
+import { EmployeeImage } from './components/EmployeeImage';
 
 interface Props {
   employee: Employee;
@@ -19,13 +17,9 @@ interface Props {
 
 export const EmployeeCard: FC<Props> = ({ employee }) => {
   return (
-    <StyledEmployeeCardWrapper>
+    <StyledEmployeeCardWrapper to={`employee/${employee.id}`}>
       <StyledAvatarWrapper>
-        <StyledAvatar
-          onError={(e) => (e.currentTarget.src = AVATAR_PLACEHOLDER)}
-          src={employee.avatarUrl || AVATAR_PLACEHOLDER}
-          alt={employee.firstName + employee.lastName}
-        />
+        <EmployeeImage avatarUrl={employee.avatarUrl} />
       </StyledAvatarWrapper>
       <StyledTextGroup $direction="column" $gap="6px">
         <StyledTextGroup $direction="row" $gap="4px">

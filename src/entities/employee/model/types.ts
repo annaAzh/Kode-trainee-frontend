@@ -11,3 +11,5 @@ export interface Employee {
   birthday: string;
   phone: string;
 }
+
+export type Filter = 'alphabet' | 'birthday';

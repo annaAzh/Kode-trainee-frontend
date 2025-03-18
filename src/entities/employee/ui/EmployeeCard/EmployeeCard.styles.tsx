@@ -50,3 +50,11 @@ export const StyledJob = styled.p`
   line-height: 16px;
   color: ${(props) => props.theme.jobText};
 `;
+
+export const StyledBirthday = styled.div`
+  margin-left: auto;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: ${(props) => props.theme.jobText};
+`;

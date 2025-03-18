@@ -49,10 +49,10 @@ export const SearchIcon = styled.div<{ $isActive?: boolean }>`
   -webkit-mask-size: contain;
 `;
 
-export const ListIcon = styled.div`
+export const ListIcon = styled.div<{ $isActive?: boolean }>`
   width: 24px;
   height: 24px;
-  background-color: ${(props) => props.theme.inputPlaceholder};
+  background-color: ${(props) => (props.$isActive ? props.theme.searchPlaceholder : props.theme.inputPlaceholder)};
   mask-image: url('/icons/list-ui-alt.svg');
   mask-repeat: no-repeat;
   mask-size: contain;

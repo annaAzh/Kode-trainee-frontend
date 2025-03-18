@@ -1,5 +1,8 @@
 import { FC } from 'react';
 import { IconWrapper, InputWrapper, ListIcon, SearchIcon, StyledInput } from './Input.styles';
+import { ModalWindow } from '../ModalWindow/ModalWindow';
+import { useAppSelector } from '@/shared/lib/hooks';
+import { getCurrentFilter } from '@/entities/employee';
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   value: string;
@@ -9,6 +12,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input: FC<Props> = ({ value, onChangeValue, onChangeFocus }) => {
+  const filter = useAppSelector(getCurrentFilter);
   return (
     <InputWrapper>
       <IconWrapper $left>
@@ -23,7 +27,9 @@ export const Input: FC<Props> = ({ value, onChangeValue, onChangeFocus }) => {
         value={value}
       />
       <IconWrapper $right>
-        <ListIcon />
+        <ModalWindow>
+          <ListIcon $isActive={filter === 'birthday'} />
+        </ModalWindow>
       </IconWrapper>
     </InputWrapper>
   );

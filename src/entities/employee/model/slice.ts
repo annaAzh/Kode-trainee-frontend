@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { Employee } from './types';
+import { Employee, Filter } from './types';
 import { Departments } from '@/shared/types';
 import { updateFilteredState } from '../lib/utils';
 
@@ -9,6 +9,7 @@ export interface EmployeesState {
   filteredEmployees: Employee[];
   selectedDepartment: Departments;
   searchQuery: string;
+  filter: Filter;
 }
 
 const initialState: EmployeesState = {
@@ -16,6 +17,7 @@ const initialState: EmployeesState = {
   filteredEmployees: [],
   selectedDepartment: Departments.all,
   searchQuery: '',
+  filter: 'alphabet',
 };
 
 export const employeesSlice = createSlice({
@@ -24,25 +26,23 @@ export const employeesSlice = createSlice({
   reducers: {
     setEmployees: (state, action: PayloadAction<Employee[]>) => {
       state.employees = action.payload;
-
-      const query = state.searchQuery.toLowerCase();
-      updateFilteredState(state, query);
+      updateFilteredState(state);
     },
     setSelectedDepartment: (state, action: PayloadAction<Departments>) => {
       state.selectedDepartment = action.payload;
-
-      const query = state.searchQuery.toLowerCase();
-      updateFilteredState(state, query);
+      updateFilteredState(state);
     },
     setSearchQuery: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
-
-      const query = action.payload.toLowerCase();
-      updateFilteredState(state, query);
+      updateFilteredState(state);
+    },
+    setFilter: (state, action: PayloadAction<Filter>) => {
+      state.filter = action.payload;
+      updateFilteredState(state);
     },
   },
 });
 
-export const { setEmployees, setSelectedDepartment, setSearchQuery } = employeesSlice.actions;
+export const { setEmployees, setSelectedDepartment, setSearchQuery, setFilter } = employeesSlice.actions;
 
 export default employeesSlice.reducer;

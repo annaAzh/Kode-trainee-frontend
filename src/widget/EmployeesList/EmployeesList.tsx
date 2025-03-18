@@ -1,8 +1,11 @@
 import { FC } from 'react';
 import { Skeleton } from '@/shared/ui';
 import { useAppSelector } from '@/shared/lib/hooks';
-import { EmployeeCard, getFilteredEmployees } from '@/entities/employee';
+import { EmployeeCard, getCurrentFilter, getFilteredEmployees } from '@/entities/employee';
 import { SearchError } from '../SearchError/SearchError';
+import { Divider } from '@/shared/ui/Divider/Divider';
+import { groupByYear } from '@/shared/lib/helpers';
+import React from 'react';
 
 interface Props {
   isLoading: boolean;
@@ -10,6 +13,7 @@ interface Props {
 
 export const EmployeesList: FC<Props> = ({ isLoading }) => {
   const employees = useAppSelector(getFilteredEmployees);
+  const filter = useAppSelector(getCurrentFilter);
 
   if (isLoading) {
     return (
@@ -25,9 +29,18 @@ export const EmployeesList: FC<Props> = ({ isLoading }) => {
 
   return (
     <ul>
-      {employees.map((employee) => (
-        <EmployeeCard employee={employee} key={employee.id} />
-      ))}
+      {filter !== 'birthday' && employees.map((employee) => <EmployeeCard employee={employee} key={employee.id} />)}
+      {filter === 'birthday' &&
+        Object.entries(groupByYear(employees)).map(([year, employeeList]) => {
+          return (
+            <React.Fragment key={year}>
+              {Number(year) !== new Date().getFullYear() && <Divider text={year} />}
+              {employeeList.map((employee) => (
+                <EmployeeCard employee={employee} key={employee.id} />
+              ))}
+            </React.Fragment>
+          );
+        })}
     </ul>
   );
 };

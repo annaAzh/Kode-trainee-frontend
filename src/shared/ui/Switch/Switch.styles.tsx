@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const SwitchInput = styled.input`
   width: 0;
   height: 0;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
   visibility: hidden;
 `;
 

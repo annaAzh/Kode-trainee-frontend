@@ -16,7 +16,7 @@ export const StyledOverflow = styled.div`
 
 export const StyledModalWindow = styled.div`
   padding: 24px 16px;
-  background: #ffffff;
+  background: ${(props) => props.theme.popupBackground};
   border-radius: 20px;
   position: relative;
   width: 373px;
@@ -30,7 +30,7 @@ export const StyledCloseButton = styled.button`
   position: absolute;
   right: 30px;
   top: 24px;
-  background: #f7f7f8;
+  background: ${(props) => props.theme.popupClose};
   width: 24px;
   height: 24px;
   border-radius: 12px;
@@ -70,7 +70,7 @@ export const StyledModalTitle = styled.h4`
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  color: #050510;
+  color: ${(props) => props.theme.textPopup};
   margin-bottom: 16px;
 `;
 
@@ -80,7 +80,7 @@ export const StyledModalRadioLabel = styled.label`
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  color: #050510;
+  color: ${(props) => props.theme.textPopup};
   display: block;
   margin-bottom: 40px;
   display: flex;
@@ -100,7 +100,7 @@ export const StyledModalRadioInput = styled.input`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    border: 6px solid #6534ff;
+    border: 6px solid ${(props) => props.theme.accent};
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -111,7 +111,7 @@ export const StyledModalRadioSpan = styled.span`
   height: 24px;
   width: 24px;
   border-radius: 50%;
-  border: 2px solid #6534ff;
+  border: 2px solid ${(props) => props.theme.accent};
   margin-right: 20px;
   position: relative;
   letter-spacing: normal;

@@ -46,7 +46,7 @@ export const StyledWrapperRow = styled.div`
 `;
 
 export const StyledBackgroundWrapper = styled.div`
-  background-color: ${(props) => props.theme.inputBackGround};
+  background-color: ${(props) => props.theme.detailsBackGround};
   padding: 12px 0 32px;
 `;
 
@@ -70,4 +70,17 @@ export const StyledEmployeePhone = styled.a`
       opacity: 0.7;
     }
   }
+`;
+
+export const StyledIcon = styled.span<{ $imagePath: string }>`
+  width: 24px;
+  height: 24px;
+  transition: color 0.3s ease-in;
+  background-color: ${(props) => props.theme.text};
+  mask-image: url(${(props) => props.$imagePath});
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: url(${(props) => props.$imagePath});
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
 `;

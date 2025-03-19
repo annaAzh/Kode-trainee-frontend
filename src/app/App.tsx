@@ -1,14 +1,16 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { RouteProvider, StoreProvider, Theme } from './providers';
 import { GlobalStyle } from './styles/GlobalStyle';
-import { THEME } from '@/shared/types';
+import { Header } from '@/widget/Header/Header';
+import { InitTheme } from './providers/themeProvider/InitTheme';
 
 const App: FC = () => {
-  const [theme] = useState(THEME.LIGHT);
   return (
     <StoreProvider>
-      <Theme theme={theme}>
+      <Theme>
         <GlobalStyle />
+        <InitTheme />
+        <Header />
         <RouteProvider />
       </Theme>
     </StoreProvider>

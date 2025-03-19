@@ -1,19 +1,15 @@
 import { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyle } from '@/app/styles/GlobalStyle';
 import { darkTheme, lightTheme } from '@/app/styles/theme/theme';
 import { THEME } from '@/shared/types';
+import { useAppSelector } from '@/shared/lib/hooks';
+import { getTheme } from '@/entities/theme';
 
 interface Props {
   children: React.ReactNode;
-  theme: THEME;
 }
 
-export const Theme: FC<Props> = ({ children, theme }) => {
-  return (
-    <ThemeProvider theme={theme === THEME.LIGHT ? lightTheme : darkTheme}>
-      <GlobalStyle />
-      {children}
-    </ThemeProvider>
-  );
+export const Theme: FC<Props> = ({ children }) => {
+  const theme = useAppSelector(getTheme);
+  return <ThemeProvider theme={theme === THEME.LIGHT ? lightTheme : darkTheme}>{children}</ThemeProvider>;
 };

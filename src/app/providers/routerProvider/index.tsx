@@ -3,15 +3,18 @@ import { Paths } from '@/shared/types';
 import { EmployeesPage } from '@/pages/employeesPage/EmployeesPage';
 import { EmployeePage } from '@/pages/employeePage/EmployeePage';
 import { NotFound } from '@/pages/notFound/NotFound';
+import { ErrorPage } from '@/pages/errorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: Paths.HOME,
     element: <EmployeesPage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: Paths.EMPLOYEE,
     element: <EmployeePage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: Paths.NOT_FOUND,

@@ -10,7 +10,11 @@ export const EmployeesPage: FC = () => {
   const dispatch = useAppDispatch();
 
   const selectedDepartment = useAppSelector(getSelectedDepartment);
-  const { data, isFetching } = useGetUsersQuery(selectedDepartment);
+  const { data, isFetching, isError } = useGetUsersQuery(selectedDepartment);
+
+  if (isError) {
+    throw new Error('500 - Internal server error');
+  }
 
   useEffect(() => {
     if (data?.items) {

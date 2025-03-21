@@ -1,6 +1,6 @@
 import { Container, Typography } from '@/shared/ui';
 import { FC } from 'react';
-import { StyledEmployeePhone, StyledIcon, StyledWrapper, StyledWrapperRow } from './EmployeeDetails.styles';
+import { StyledEmployeePhone, StyledIcon, StyledWrapperEmployee, StyledWrapperRow } from './EmployeeDetails.styles';
 import { Employee } from '../../model/types';
 
 interface Props {
@@ -13,7 +13,7 @@ export const EmployeeInfo: FC<Props> = ({ normalizedBirthday, employee, employee
   return (
     <Container>
       <StyledWrapperRow>
-        <StyledWrapper $alignItems="left">
+        <StyledWrapperEmployee $alignItems="left">
           <Typography
             tag="p"
             display="flex"
@@ -30,7 +30,7 @@ export const EmployeeInfo: FC<Props> = ({ normalizedBirthday, employee, employee
             <StyledIcon $imagePath="/icons/phone.svg" />
             {employee.phone}
           </StyledEmployeePhone>
-        </StyledWrapper>
+        </StyledWrapperEmployee>
 
         <Typography
           tag="p"

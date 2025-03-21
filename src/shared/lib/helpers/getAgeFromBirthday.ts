@@ -1,4 +1,4 @@
-export const getAgeFromBirthday = (birthday: string) => {
+export const getAgeFromBirthday = (birthday: string, currentLanguage: string) => {
   const str = [' года', ' год', ' лет'];
   const milliseconds = 1000;
   const seconds = 60;
@@ -9,19 +9,23 @@ export const getAgeFromBirthday = (birthday: string) => {
   const millisecondsInYear = milliseconds * seconds * minutes * hours * days;
   const employeeAge = Math.floor(dif / millisecondsInYear);
 
-  const lastNum = employeeAge.toString().slice(-1);
-  if (lastNum === '1') {
-    return employeeAge + str[1];
-  } else if (
-    lastNum === '5' ||
-    lastNum === '6' ||
-    lastNum === '7' ||
-    lastNum === '8' ||
-    lastNum === '9' ||
-    lastNum === '0'
-  ) {
-    return employeeAge + str[2];
-  } else {
-    return employeeAge + str[0];
+  if (currentLanguage === 'ru') {
+    const lastNum = employeeAge.toString().slice(-1);
+    if (lastNum === '1') {
+      return employeeAge + str[1];
+    } else if (
+      lastNum === '5' ||
+      lastNum === '6' ||
+      lastNum === '7' ||
+      lastNum === '8' ||
+      lastNum === '9' ||
+      lastNum === '0'
+    ) {
+      return employeeAge + str[2];
+    } else {
+      return employeeAge + str[0];
+    }
   }
+
+  return employeeAge + ' years old';
 };

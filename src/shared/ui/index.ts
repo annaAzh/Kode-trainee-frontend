@@ -5,3 +5,4 @@ export { Tab, TabItem } from './Tab/Tab';
 export { Skeleton } from './Skeleton/Skeleton';
 export { Typography } from './Typography/Typography';
 export * from './Typography/Typography.styles';
+export { StyledWrapper } from './Wrapper/Wrapper.styles';

@@ -4,13 +4,14 @@ import {
   StyledBackButton,
   StyledBackgroundWrapper,
   StyledBackIcon,
-  StyledWrapper,
+  StyledWrapperEmployee,
 } from './EmployeeDetails.styles';
-import { Container, Typography } from '@/shared/ui';
+import { Container, StyledWrapper, Typography } from '@/shared/ui';
 import { EmployeeImage } from '../components/EmployeeImage';
 import { Employee } from '../../model/types';
 import { useNavigate } from 'react-router-dom';
 import { Paths } from '@/shared/types';
+import { SwitchControls } from '@/widget/SwitchControls/SwitchControls';
 
 interface Props {
   employee: Employee;
@@ -28,10 +29,14 @@ export const EmployeeHeader: FC<Props> = ({ employee }) => {
   return (
     <StyledBackgroundWrapper>
       <Container>
-        <StyledBackButton onClick={handleBackClick}>
-          <StyledBackIcon src="/icons/back.svg" alt="back button" $width="6px" $height="10px" />
-        </StyledBackButton>
         <StyledWrapper>
+          <StyledBackButton onClick={handleBackClick}>
+            <StyledBackIcon src="/icons/back.svg" alt="back button" $width="6px" $height="10px" />
+          </StyledBackButton>
+          <SwitchControls />
+        </StyledWrapper>
+
+        <StyledWrapperEmployee>
           <StyledAvatarWrapper>
             <EmployeeImage avatarUrl={employee.avatarUrl} />
           </StyledAvatarWrapper>
@@ -51,7 +56,7 @@ export const EmployeeHeader: FC<Props> = ({ employee }) => {
           <Typography tag="p" fontSize="13px" lineHeight="16px" color="var(--color-dark-gray)">
             {employee.position.slice(0, 1).toUpperCase().concat(employee.position.slice(1))}
           </Typography>
-        </StyledWrapper>
+        </StyledWrapperEmployee>
       </Container>
     </StyledBackgroundWrapper>
   );

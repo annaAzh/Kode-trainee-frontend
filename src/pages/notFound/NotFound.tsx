@@ -1,5 +1,10 @@
+import { Container, Typography } from '@/shared/ui';
 import { FC } from 'react';
 
 export const NotFound: FC = () => {
-  return <div>404</div>;
+  return (
+    <Container>
+      <Typography tag="h1">404 page</Typography>
+    </Container>
+  );
 };

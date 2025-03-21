@@ -13,6 +13,7 @@ export const lightTheme = {
   searchPlaceholder: 'var(--color-black)',
   accent: 'var(--color-accent)',
   jobText: 'var(--color-dark-gray)',
+  connectionFail: 'var(--color-danger)',
 };
 export const darkTheme = {
   body: 'var(--color-primary)',
@@ -29,4 +30,5 @@ export const darkTheme = {
   accent: 'var(--color-accent)',
   jobText: 'var(--color-dark-gray)',
   inputBackGround: 'var(--color-light-gray)',
+  connectionFail: 'var(--color-danger)',
 };

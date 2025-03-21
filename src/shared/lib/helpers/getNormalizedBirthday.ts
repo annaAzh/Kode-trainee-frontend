@@ -1,12 +1,13 @@
-import { MONTHS } from '@/shared/constants';
-
-export const getNormalizedBirthday = (birthday: string) => {
+export const getNormalizedBirthday = (birthday: string, months: string[], currentLanguage: string) => {
   const year = new Date(birthday).getFullYear();
   const month = new Date(birthday).getMonth();
   const day = new Date(birthday).getDate();
-  const monthName = MONTHS[month];
+  const monthName = months[month];
 
-  const lastChar = month === 2 || month === 7 ? 'а' : 'я';
+  if (currentLanguage === 'ru') {
+    const lastCharFoRussian = month === 2 || month === 7 ? 'а' : 'я';
+    return `${day} ${monthName}${lastCharFoRussian} ${year}`;
+  }
 
-  return `${day} ${monthName.slice(0, -1)}${lastChar} ${year}`;
+  return `${day} ${monthName} ${year}`;
 };

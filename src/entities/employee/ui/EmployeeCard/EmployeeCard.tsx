@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import { Employee } from '../../model/types';
 import {
   StyledAvatarWrapper,
@@ -14,13 +13,17 @@ import { EmployeeImage } from '../components/EmployeeImage';
 import { formatBirthday } from '@/shared/lib/helpers';
 import { useAppSelector } from '@/shared/lib/hooks';
 import { getCurrentFilter } from '../../model/selectors';
+import { useTranslation } from 'react-i18next';
+import { useMonths } from '@/shared/lib/helpers/useMonths';
 
 interface Props {
   employee: Employee;
 }
 
 export const EmployeeCard: FC<Props> = ({ employee }) => {
+  const { t } = useTranslation();
   const filter = useAppSelector(getCurrentFilter);
+  const months = useMonths();
   return (
     <StyledEmployeeCardWrapper to={`employee/${employee.id}`}>
       <StyledAvatarWrapper>
@@ -34,10 +37,10 @@ export const EmployeeCard: FC<Props> = ({ employee }) => {
           <StyledMeta>{employee.userTag}</StyledMeta>
         </StyledTextGroup>
         <StyledJob>
-          {employee.department} {employee.position}
+          {t(`departments.${employee.department}`)} {employee.position}
         </StyledJob>
       </StyledTextGroup>
-      {filter === 'birthday' && <StyledBirthday>{formatBirthday(employee.birthday)}</StyledBirthday>}
+      {filter === 'birthday' && <StyledBirthday>{formatBirthday(employee.birthday, months)}</StyledBirthday>}
     </StyledEmployeeCardWrapper>
   );
 };

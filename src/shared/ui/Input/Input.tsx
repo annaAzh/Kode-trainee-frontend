@@ -3,6 +3,7 @@ import { IconWrapper, InputWrapper, ListIcon, SearchIcon, StyledInput } from './
 import { ModalWindow } from '../ModalWindow/ModalWindow';
 import { useAppSelector } from '@/shared/lib/hooks';
 import { getCurrentFilter } from '@/entities/employee';
+import { useTranslation } from 'react-i18next';
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   value: string;
@@ -12,6 +13,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input: FC<Props> = ({ value, onChangeValue, onChangeFocus }) => {
+  const { t } = useTranslation();
   const filter = useAppSelector(getCurrentFilter);
   return (
     <InputWrapper>
@@ -20,7 +22,7 @@ export const Input: FC<Props> = ({ value, onChangeValue, onChangeFocus }) => {
       </IconWrapper>
 
       <StyledInput
-        placeholder="Введи имя, тег, почту..."
+        placeholder={t('search_placeholder')}
         onChange={(e) => onChangeValue(e.target.value)}
         onBlur={() => onChangeFocus(false)}
         onFocus={() => onChangeFocus(true)}

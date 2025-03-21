@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { RouteProvider, StoreProvider, Theme } from './providers';
 import { GlobalStyle } from './styles/GlobalStyle';
-import { Header } from '@/widget/Header/Header';
 import { InitTheme } from './providers/themeProvider/InitTheme';
 import { ErrorBoundary } from './providers/ErrorBoundary/ErrorBoundary';
+import './i18next';
 
 const App: FC = () => {
   return (
@@ -12,7 +12,6 @@ const App: FC = () => {
         <Theme>
           <GlobalStyle />
           <InitTheme />
-          <Header />
           <RouteProvider />
         </Theme>
       </ErrorBoundary>

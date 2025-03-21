@@ -1,6 +1,7 @@
 import { FC, useRef, useState } from 'react';
 import { StyledTabItem, TabContainer } from './Tab.styles';
 import { Departments } from '@/shared/types';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   children: React.ReactNode;
@@ -51,9 +52,11 @@ interface TabItemProps {
 }
 
 export const TabItem: FC<TabItemProps> = ({ tab, selected = false, onClick }) => {
+  const { t } = useTranslation();
+
   return (
     <StyledTabItem selected={selected} onClick={() => onClick(tab)}>
-      {tab}
+      {t(`departments.${tab}`)}
     </StyledTabItem>
   );
 };

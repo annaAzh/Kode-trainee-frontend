@@ -8,12 +8,15 @@ import {
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks';
 import { getCurrentFilter, setFilter } from '@/entities/employee';
 import { Filters } from '@/shared/types';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   onChangeFilter: () => void;
 }
 
 export const ModalContent: FC<Props> = ({ onChangeFilter }) => {
+  const { t } = useTranslation();
+
   const filter = useAppSelector(getCurrentFilter);
   const dispatch = useAppDispatch();
 
@@ -24,7 +27,7 @@ export const ModalContent: FC<Props> = ({ onChangeFilter }) => {
 
   return (
     <>
-      <StyledModalTitle>Сортировка</StyledModalTitle>
+      <StyledModalTitle>{t('sorting')}</StyledModalTitle>
 
       <StyledModalRadioLabel>
         <StyledModalRadioInput
@@ -36,7 +39,7 @@ export const ModalContent: FC<Props> = ({ onChangeFilter }) => {
           onChange={(e) => handleChangeFilter(e)}
         />
         <StyledModalRadioSpan />
-        По алфавиту
+        {t('sort_by_alphabet')}
       </StyledModalRadioLabel>
 
       <StyledModalRadioLabel>
@@ -49,7 +52,7 @@ export const ModalContent: FC<Props> = ({ onChangeFilter }) => {
           onChange={(e) => handleChangeFilter(e)}
         />
         <StyledModalRadioSpan />
-        По дню рождения
+        {t('sort_by_birthday')}
       </StyledModalRadioLabel>
     </>
   );

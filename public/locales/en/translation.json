@@ -1,0 +1,43 @@
+{
+  "search": "Search",
+  "search_loading": "Just a moment, loading...",
+  "search_error_text": "Cannot update data. Check your internet connection.",
+  "search_placeholder": "Enter a first name, last name or nickname ...",
+  "sorting": "Sorting",
+  "sort_by_alphabet": "By alphabet",
+  "sort_by_birthday": "By birthday",
+  "search_not_found_title": "We couldn't find anyone",
+  "search_not_found_desc": "Try correct your search",
+  "error_title": "Some superintelligence broke everything",
+  "error_desc": "We'll try to fix it quickly",
+  "error_retry": "Try again",
+  "months": [
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december"
+  ],
+  "departments": {
+    "all": "All",
+    "android": "Android",
+    "ios": "iOS",
+    "design": "Design",
+    "management": "Management",
+    "qa": "QA",
+    "back_office": "Back Office",
+    "frontend": "Frontend",
+    "hr": "HR",
+    "pr": "PR",
+    "backend": "Backend",
+    "support": "Support",
+    "analytics": "Analytics"
+  }
+}

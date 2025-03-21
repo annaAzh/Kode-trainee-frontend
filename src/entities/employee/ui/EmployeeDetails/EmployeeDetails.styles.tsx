@@ -29,7 +29,7 @@ export const StyledAvatarWrapper = styled.div`
   overflow: hidden;
 `;
 
-export const StyledWrapper = styled.div<{ $alignItems?: string }>`
+export const StyledWrapperEmployee = styled.div<{ $alignItems?: string }>`
   display: flex;
   justify-content: center;
   flex-direction: column;

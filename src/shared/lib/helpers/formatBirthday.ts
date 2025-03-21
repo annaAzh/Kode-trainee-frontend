@@ -1,7 +1,5 @@
-import { MONTHS } from '@/shared/constants';
-
-export const formatBirthday = (birthday: string) => {
+export const formatBirthday = (birthday: string, months: string[]) => {
   const [, month, day] = birthday.split('-').map(Number);
 
-  return `${day} ${MONTHS[month].slice(0, 3)}`;
+  return `${day} ${months[month].slice(0, 3)}`;
 };

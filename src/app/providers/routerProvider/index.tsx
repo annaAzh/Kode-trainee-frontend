@@ -5,26 +5,31 @@ import { EmployeePage } from '@/pages/employeePage/EmployeePage';
 import { NotFound } from '@/pages/notFound/NotFound';
 import { ErrorPage } from '@/pages/errorPage/ErrorPage';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: Paths.HOME,
+      element: <EmployeesPage />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: Paths.EMPLOYEE,
+      element: <EmployeePage />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: Paths.NOT_FOUND,
+      element: <NotFound />,
+    },
+    {
+      path: Paths.NOT_FOUND_ALL,
+      element: <NotFound />,
+    },
+  ],
   {
-    path: Paths.HOME,
-    element: <EmployeesPage />,
-    errorElement: <ErrorPage />,
+    basename: '/Kode-trainee-frontend/',
   },
-  {
-    path: Paths.EMPLOYEE,
-    element: <EmployeePage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: Paths.NOT_FOUND,
-    element: <NotFound />,
-  },
-  {
-    path: Paths.NOT_FOUND_ALL,
-    element: <NotFound />,
-  },
-]);
+);
 
 export const RouteProvider = () => {
   return <RouterProvider router={router} />;

@@ -27,7 +27,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: '/Kode-trainee-frontend/',
+    basename: `${import.meta.env.BASE_URL}`,
   },
 );
 

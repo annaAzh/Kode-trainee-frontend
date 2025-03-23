@@ -31,6 +31,19 @@ export const Tab: FC<Props> = ({ children }) => {
     setIsDragging(false);
   };
 
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - containerRef.current.offsetLeft);
+    setScrollLeft(containerRef.current.scrollLeft);
+  };
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isDragging || !containerRef.current) return;
+    const x = e.touches[0].pageX - containerRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
   return (
     <TabContainer
       ref={containerRef}
@@ -39,6 +52,9 @@ export const Tab: FC<Props> = ({ children }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseUp}
       onMouseUp={handleMouseUp}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleMouseUp}
     >
       {children}
     </TabContainer>

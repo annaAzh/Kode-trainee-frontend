@@ -18,6 +18,9 @@ i18next
     interpolation: {
       escapeValue: false,
     },
+    backend: {
+      loadPath: `${import.meta.env.BASE_URL}` + '/locales/{{lng}}/translation.json',
+    },
     returnObjects: true,
   });
 

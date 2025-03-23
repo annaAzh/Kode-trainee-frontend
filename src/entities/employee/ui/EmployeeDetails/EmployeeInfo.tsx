@@ -23,11 +23,11 @@ export const EmployeeInfo: FC<Props> = ({ normalizedBirthday, employee, employee
             fontSize="16px"
             lineHeight="20px"
           >
-            <StyledIcon $imagePath="/icons/favorite.svg" />
+            <StyledIcon $imagePath={`${import.meta.env.BASE_URL}/icons/favorite.svg`} />
             {normalizedBirthday}
           </Typography>
           <StyledEmployeePhone href={`tel:${employee.phone}`}>
-            <StyledIcon $imagePath="/icons/phone.svg" />
+            <StyledIcon $imagePath={`${import.meta.env.BASE_URL}/icons/phone.svg`} />
             {employee.phone}
           </StyledEmployeePhone>
         </StyledWrapperEmployee>

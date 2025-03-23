@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyledAvatar } from '../EmployeeCard/EmployeeCard.styles';
 
-const AVATAR_PLACEHOLDER = '/images/img_placeholder.png';
+const AVATAR_PLACEHOLDER = `${import.meta.env.BASE_URL}/images/img_placeholder.png`;
 
 interface Props {
   avatarUrl?: string;

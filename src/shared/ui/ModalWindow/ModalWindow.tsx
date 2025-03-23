@@ -25,7 +25,7 @@ export const ModalWindow: FC<Props> = ({ children }) => {
           <StyledOverflow>
             <StyledModalWindow>
               <StyledCloseButton onClick={() => setShowModal(false)}>
-                <CrossIcon src="/icons/cross.svg" alt="close" />
+                <CrossIcon src={`${import.meta.env.BASE_URL}/icons/cross.svg`} alt="close" />
               </StyledCloseButton>
               <ModalContent onChangeFilter={() => setShowModal(false)} />
             </StyledModalWindow>

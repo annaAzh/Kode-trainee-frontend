@@ -27,17 +27,17 @@
   ],
   "departments": {
     "all": "Все",
-    "android": "Андроид",
+    "android": "Android",
     "ios": "iOS",
     "design": "Дизайн",
     "management": "Менеджмент",
-    "qa": "Тестирование",
+    "qa": "QA",
     "back_office": "Бэк-офис",
-    "frontend": "Фронт-енд",
-    "hr": "Кадры",
+    "frontend": "Frontend",
+    "hr": "HR",
     "pr": "PR",
-    "backend": "Бэк-енд",
-    "support": "Поддержка",
+    "backend": "Backend",
+    "support": "Техподдержка",
     "analytics": "Аналитика"
   }
 }

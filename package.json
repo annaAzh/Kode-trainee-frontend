@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://annaAzh.github.io/kode-trainee-frontend",
+  "homepage": "https://annaazh.github.io/kode-trainee-frontend",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -11,8 +11,7 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx,json,css}\"",
     "format:fix": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",

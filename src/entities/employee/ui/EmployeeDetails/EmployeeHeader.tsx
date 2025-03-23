@@ -31,7 +31,12 @@ export const EmployeeHeader: FC<Props> = ({ employee }) => {
       <Container>
         <StyledWrapper>
           <StyledBackButton onClick={handleBackClick}>
-            <StyledBackIcon src="/icons/back.svg" alt="back button" $width="6px" $height="10px" />
+            <StyledBackIcon
+              src={`${import.meta.env.BASE_URL}/icons/back.svg`}
+              alt="back button"
+              $width="6px"
+              $height="10px"
+            />
           </StyledBackButton>
           <SwitchControls />
         </StyledWrapper>

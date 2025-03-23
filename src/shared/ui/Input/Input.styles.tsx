@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+const searchIcon = `${import.meta.env.BASE_URL}` + '/icons/search.svg';
+const listIcon = `${import.meta.env.BASE_URL}` + '/icons/list-ui-alt.svg';
+
 export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -41,10 +44,10 @@ export const SearchIcon = styled.div<{ $isActive?: boolean }>`
   height: 24px;
   transition: color 0.3s ease-in;
   background-color: ${(props) => (props.$isActive ? props.theme.searchPlaceholder : props.theme.inputPlaceholder)};
-  mask-image: url('/icons/search.svg');
+  mask-image: url(${searchIcon});
   mask-repeat: no-repeat;
   mask-size: contain;
-  -webkit-mask-image: url('/icons/search.svg');
+  -webkit-mask-image: url(${searchIcon});
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
 `;
@@ -53,12 +56,12 @@ export const ListIcon = styled.div<{ $isActive?: boolean }>`
   width: 24px;
   height: 24px;
   background-color: ${(props) => (props.$isActive ? props.theme.searchPlaceholder : props.theme.inputPlaceholder)};
-  mask-image: url('/icons/list-ui-alt.svg');
+  mask-image: url(${listIcon});
   mask-repeat: no-repeat;
   mask-size: contain;
   cursor: pointer;
   transition: all 0.3s ease-in;
-  -webkit-mask-image: url('/icons/list-ui-alt.svg');
+  -webkit-mask-image: url(${listIcon});
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
 

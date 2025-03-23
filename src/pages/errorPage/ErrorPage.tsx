@@ -37,7 +37,7 @@ export const ErrorPage: FC<Props> = ({ text }) => {
       <Container fullHeight>
         <EmployeesTab />
         <StyledErrorWrapper>
-          <StyledErrorImg src={ImageFlyingSaucer} />
+          <StyledErrorImg src={`${import.meta.env.BASE_URL}/${ImageFlyingSaucer}`} />
           <BasicParagraph $margin="0px 0px 12px 0px">{text || t('error_title')}</BasicParagraph>
           <GrayParagraph $margin="0px 0px 12px 0px">{t('error_desc')}</GrayParagraph>
           <StyledErrorButton onClick={handleReloadClick}>{t('error_retry')}</StyledErrorButton>
